@@ -6,46 +6,38 @@
 //Version 0.5.1 by Kianusch
 //Version 0.5.2 by Kianusch 
 //Version 0.5.3 by Kianusch 
+//Version 0.6 by KichKasch (got rid off code for second LED)
 
-// AI1/AI6  ... (0-10V|100%) RED   | DIMMER
-// AI2/AI7  ... (0-10V|100%) GREEN | DIMMER
-// AI3/AI8  ... (0-10V|100%) BLUE  | DIMMER
-// AI4/AI9  ... (0-10V|100%) WW    | DIMMER
-// AI5/AI10 ... (0-10V|100%) CW    | DIMMER ?
-// AI6/AI11 ... Combined RGB 
+// AI1  ... (0-10V|100%) RED   | DIMMER
+// AI2  ... (0-10V|100%) GREEN | DIMMER
+// AI3  ... (0-10V|100%) BLUE  | DIMMER
+// AI4  ... (0-10V|100%) WW    | DIMMER
+// AI5  ... (0-10V|100%) CW    | DIMMER ?
+// AI6  ... Combined RGB 
 
-char* IP_ADDRESS_1 = "192.168.2.9";
-char* IP_ADDRESS_2 = "192.168.2.8";
-
+char* IP_ADDRESS_1 = "192.168.200.159";
 int PORT=5577;
 
 // 0=RGB + W (WHITE Value is used from AI5/AI10)
 // 1=RGB (WHITE Value is calculated from RGB | Ignored if no WHITE CHANNEL)
-char CALC_WHITE1=0;
-char CALC_WHITE2=0;
+char CALC_WHITE1=1;
 
 // INPUT TYPE 0-10V ..... TYPEx=10  (RGB Lichtszene or Dimmer 0-10V)
 //            0-100% .... TYPEx=100 (Dimmer 0-100%)
 char DIM_TYPE1=100;
-char DIM_TYPE2=100;
 
 // CTRLTYPE - LD382 ............... 1
 //            LD382A ab FW1.0.6 ... 2
 //            RGB/WW/CW ........... 3
 char CTRL_TYPE1=2;
-char CTRL_TYPE2=3;
 
 char dev1[64];
 sprintf(dev1,"/dev/tcp/%s/%d",IP_ADDRESS_1,PORT);
-char dev2[64];
-sprintf(dev2,"/dev/tcp/%s/%d",IP_ADDRESS_2,PORT);
 
 int nEvents;
 char state1[16];
-char state2[16];
 
 char *onOff1;
-char *onOff2;
 
 void sendCmd(STREAM* stream, char *cmd, int len) {
    stream_write(stream,cmd,len);
@@ -100,7 +92,7 @@ void parseInput(char* dev, char *state, char *onOff, int offset) {
             state[7]=(state[0] + state[1] + state[2] + state[3] + state[4] + state[5] + state[6])%256;
          }
          sendCmd(stream,state,state[14]);
-         // printf("RGB: %d %d %d %d %d %d %d %d %d %d",state[1], state[2], state[3], state[4], state[5], state[6], state[7], state[8], state[13], state[14]);
+         //printf("[MagicHome] RGB: %d %d %d %d %d %d %d %d %d %d",state[1], state[2], state[3], state[4], state[5], state[6], state[7], state[8], state[13], state[14]);
       } else {
          ON = 0;
       }
@@ -117,25 +109,7 @@ void parseInput(char* dev, char *state, char *onOff, int offset) {
       stream_close(stream);
 }
 
-// state[0] ... intro ... 0x31 
-// state[1] ... red
-// state[2] .... green
-// state[3] .... blue
-// state[4] .... ww
-// state[5] .... 0xF0 | cw
-// state[6] .... 0x0F | 0xF0
-// state[7] .... cs   | 0x0F
-// state[8] .... xxxx | cs
-// 0xF0 true | 0x0F false
-// state[9]  .... RGB/RGBW
-// state[10] .... on|off (1|0) ... state
-// state[11] .... TYPE 0-100%|0-10V (100|10) 
-// state[12] .... CTRL_TYPE
-// state[13] .... CMDLEN_ON_OFF 3|4
-// state[14] .... CMDLEN_STATE 8|9
-
 sprintf(state1,"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 0x31, 0, 0, 0, 0, 0, 0, 0, 0, CALC_WHITE1, 0, DIM_TYPE1, CTRL_TYPE1, 4, 8);
-sprintf(state2,"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 0x31, 0, 0, 0, 0, 0, 0, 0, 0, CALC_WHITE2, 0, DIM_TYPE2, CTRL_TYPE2, 4, 8);
 
 char onOffShort[8];
 char onOffLong[8];
@@ -145,7 +119,7 @@ sprintf(onOffShort, "%c%c%c%c%c%c%c%c", 0x71, 0x23, 0x94, 0x00, 0x71, 0x24, 0x95
 sprintf(onOffLong, "%c%c%c%c%c%c%c%c",  0x71, 0x23, 0x0F, 0xA3, 0x71, 0x24, 0x0F, 0xA4);
 
 onOff1=onOffLong;
-onOff2=onOffLong;
+
 
 //state1[13]=4;
 //state2[13]=4;
@@ -154,26 +128,16 @@ if (CTRL_TYPE1==1) {
    onOff1=onOffShort;
    state1[13]=3;
 }
-if (CTRL_TYPE2==1) {
-   onOff2=onOffShort;
-   state1[13]=3;
-}
 
 if (CTRL_TYPE1==2) {
    state1[6]=0x0F;
 }
-if (CTRL_TYPE2==2) {
-   state2[6]=0x0F;
-}
 
-if (CTRL_TYPE2==3) {
+if (CTRL_TYPE1==3) {
    state1[7]=0x0F;
    state1[14]=9;
 }
-if (CTRL_TYPE2==3) {
-   state2[7]=0x0F;
-   state2[14]=9;
-}
+
 
 // Main loop
 while(TRUE) {
@@ -181,8 +145,6 @@ while(TRUE) {
 
    if (nEvents & 0x01F8) {
       parseInput(dev1, state1, onOff1, 0);
-  } else if (nEvents & 0x7E00) {
-      parseInput(dev2, state2, onOff2, 6);
   } else {
       sleep (100);
    }
