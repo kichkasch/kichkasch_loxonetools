@@ -7,5 +7,7 @@ https://www.loxforum.com/forum/faqs-tutorials-howto-s/1236-howto-g%C3%BCnstige-w
 
 
 German users find step-by-step instructions for choosing hardware and integrating it into Loxone in the following [HOWTO](https://github.com/kichkasch/kichkasch_loxonetools/blob/master/magichome/HOWTO.de.md).
+
 ---
+
 Deutsche Anwender werden Schritt für Schritt mittels folgender [Anleitung](https://github.com/kichkasch/kichkasch_loxonetools/blob/master/magichome/HOWTO.de.md) durch die Hardware-Auswahl und Integration in die Loxone-Umgebung geführt.
