@@ -1,2 +1,2 @@
 # kichkasch_loxonetools
-Tools dealing wiht and around the Loxone Smart Home
+Tools dealing with and around the Loxone Smart Home
