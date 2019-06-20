@@ -40,3 +40,6 @@ Die IP-Adresse der LED-Controllers wird benötigt - entweder aus dem Geräte-Man
 6) Die drei Komponenten wie in der [hinterlegten Abbildung](https://github.com/kichkasch/kichkasch_loxonetools/blob/master/magichome/magicHome.loxone.jpg) dargestellt miteinander verbinden.
 
 Programm in Miniserver überspielen und neu starten. Off you go.
+
+## Kontakt
+Michael Pilgermann (kichkasch@gmx.de)
