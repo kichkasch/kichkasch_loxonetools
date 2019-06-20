@@ -6,7 +6,7 @@ Diese Lösung ist maßgeblich inspiriert von folgender Diskussion im sogenannten
 
 Natürlich stellt auch Loxone LED-Streifen mitsamt Zubehör zur Verfügung, die per Kabel (Loxone Tree) oder kabellos (Loxone Air) eingebunden werden können. Meine Recherche ergab jedoch, dass die Loxone-Lösung preislich ein Vielfaches der hier vorgestellten Lösung bedeutet.
 
-*Anmerkung: Grundsätzliche Loxone-Programmierkenntnisse werden vorausgesetzt; an dieser Stelle werden nur die Spezifika für die Integration der LED-Streifen beschrieben.
+*Anmerkung: Grundsätzliche Loxone-Programmierkenntnisse werden vorausgesetzt; an dieser Stelle werden nur die Spezifika für die Integration der LED-Streifen beschrieben.*
 
 ## 2) Benötige Hardware
 *Der Markt ist mit Produkten für LED-Beleuchtung seit einigen Jahren überschwemmt; die Preise sind erheblich gefallen. Laut oben referenzierter Diskussion im Forum funktionieren auch verschiedene Produkte verschiedener Hersteller. Ich beschränke mich in folgender Auflistung auf immer genau einen Produktvorschlag, der im Zusammenspiel mit allen Komponenten erfolgreich gestestet ist und robust und verlässlich funktioniert.*
