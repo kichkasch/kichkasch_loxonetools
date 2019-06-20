@@ -32,7 +32,7 @@ Das [in diesem Projekt hinterlegte Skript](https://github.com/kichkasch/kichkasc
 Die IP-Adresse der LED-Controllers wird benötigt - entweder aus dem Geräte-Manager der Magic-Home-App oder bspw. aus dem WLAN-Router.
 
 ### Einbindung in Loxone
-1) Neuen Programmbaustein im Loxone-Programm anlegen (Name bspw. Magic Home)
+1) Neuen Programmbaustein im Loxone-Programm anlegen (Name bspw. "MagicHome")
 2) Inhalte von [magichome.picoc.txt](https://github.com/kichkasch/kichkasch_loxonetools/blob/master/magichome/magichome.picoc.txt) in den Baustein kopieren.
 3) IP-Adresse in Zeile 18 auf die eigene IP-Adresse des LED-Controllers (s.o. Vorbereitung) ändern.
 4) Neuen Loxone-Standardbaustein *RGB-Lichtszene* hinzufügen.
