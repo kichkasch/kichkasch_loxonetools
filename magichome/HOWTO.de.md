@@ -2,7 +2,7 @@
 
 ## 1) Einleitung
 Loxone ist eine Hausautomatisierungslösung der gleichnamigen Firma. Ich stelle hier eine Lösung vor, wie allgemein verfügbare Komponenten für einen LED-Streifen zusammengestellt und in die Loxone-Lösung eingebunden werden können.
-Diese Lösung ist maßgeblich inspiriert von folgender Diskussion im sogenannten Loxforum: [HOWTO: Günstige W-Lan RGB Controller Lösung (<35€) - Magic-UFO Wifi controller LD382"](https://www.loxforum.com/forum/faqs-tutorials-howto-s/1236-howto-g%C3%BCnstige-w-lan-rgb-controller-l%C3%B6sung-35%E2%82%AC-magic-ufo-wifi-controller-ld382).
+Diese Lösung ist maßgeblich inspiriert von folgender Diskussion im sogenannten Loxforum: [HOWTO: Günstige W-Lan RGB Controller Lösung (<35€) - Magic-UFO Wifi controller LD382](https://www.loxforum.com/forum/faqs-tutorials-howto-s/1236-howto-g%C3%BCnstige-w-lan-rgb-controller-l%C3%B6sung-35%E2%82%AC-magic-ufo-wifi-controller-ld382).
 
 Natürlich stellt auch Loxone LED-Streifen mitsamt Zubehör zur Verfügung, die per Kabel (Loxone Tree) oder kabellos (Loxone Air) eingebunden werden können. Meine Recherche ergab jedoch, dass die Loxone-Lösung preislich ein Vielfaches der hier vorgestellten Lösung bedeutet.
 
