@@ -24,7 +24,7 @@ Am Ende der Intriebnahme muss sich der Controller per WLAN im gleichen Netz wie 
 ## 4) Integration in Loxone
 
 ### Kurzbeschreibung der Gesamtlösung
-Für spezifische Anwendungsfälle können in der Loxone-Lösung [Skripte hinterlegt werden](https://www.loxone.com/dede/kb/script-programming/). Diese Skripte müssen in der Sprache [PicoC](http://code.google.com/p/picoc/) geschrieben sein (eine *abgespeckte* C-Variante). 
+Für spezifische Anwendungsfälle können in der Loxone-Lösung [Skripte hinterlegt werden](https://www.loxone.com/dede/kb/script-programming/). Diese Skripte müssen in der Sprache [PicoC](https://gitlab.com/zsaleeba/picoc) geschrieben sein (eine *abgespeckte* C-Variante). 
 
 Das [in diesem Projekt hinterlegte Skript](https://github.com/kichkasch/kichkasch_loxonetools/blob/master/magichome/magichome.picoc.txt) für die LED-Steuerung wird in einen sogenannten Programm-Baustein reinkopiert. Dann können - wie gewohnt- die Eingänge genutzt werden.
 
