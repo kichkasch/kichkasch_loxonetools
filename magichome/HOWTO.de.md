@@ -1,7 +1,7 @@
 # Anleitung, um einen "generischen" LED-Streifen in die Loxone einzubinden 
 
 ## 1) Einleitung
-Loxone ist eine Hausautomatisierungslösung der gleichnamigen Firma. Ich stelle hier eine Lösung vor, wie allgemein verfügbare Komponenten für einen LED-Streifen zusammengestellt und in die Loxone-Lösung eingebunden werden können.
+[Loxone](https://www.loxone.com/dede/) ist eine Hausautomatisierungslösung der gleichnamigen Firma. Ich stelle hier eine Lösung vor, wie allgemein verfügbare Komponenten für einen LED-Streifen zusammengestellt und in die Loxone-Lösung eingebunden werden können.
 Diese Lösung ist maßgeblich inspiriert von folgender Diskussion im sogenannten Loxforum: [HOWTO: Günstige W-Lan RGB Controller Lösung (<35€) - Magic-UFO Wifi controller LD382](https://www.loxforum.com/forum/faqs-tutorials-howto-s/1236-howto-g%C3%BCnstige-w-lan-rgb-controller-l%C3%B6sung-35%E2%82%AC-magic-ufo-wifi-controller-ld382).
 
 Natürlich stellt auch Loxone LED-Streifen mitsamt Zubehör zur Verfügung, die per Kabel (Loxone Tree) oder kabellos (Loxone Air) eingebunden werden können. Meine Recherche ergab jedoch, dass die Loxone-Lösung preislich ein Vielfaches der hier vorgestellten Lösung bedeutet.
@@ -32,10 +32,11 @@ Das [in diesem Projekt hinterlegte Skript](https://github.com/kichkasch/kichkasc
 Die IP-Adresse der LED-Controllers wird benötigt - entweder aus dem Geräte-Manager der Magic-Home-App oder bspw. aus dem WLAN-Router.
 
 ### Einbindung in Loxone
-1) Neuen Programmbaustein im Loxone-Programm anlegen (Name bspw. "MagicHome")
+
+1) Neuen [Programmbaustein](https://www.loxone.com/dede/kb/script-programming/) im Loxone-Programm anlegen (Name bspw. "MagicHome")
 2) Inhalte von [magichome.picoc.txt](https://github.com/kichkasch/kichkasch_loxonetools/blob/master/magichome/magichome.picoc.txt) in den Baustein kopieren.
 3) IP-Adresse in Zeile 18 auf die eigene IP-Adresse des LED-Controllers (s.o. Vorbereitung) ändern.
-4) Neuen Loxone-Standardbaustein *RGB-Lichtszene* hinzufügen.
+4) Neuen Loxone-Standardbaustein [RGB-Lichtszene](https://www.loxone.com/dede/kb/rgb_lichtszene/) hinzufügen.
 5) Eine Konstante mit Name *Eins* und Wert *1* anlegen.
 6) Die drei Komponenten wie in der [hinterlegten Abbildung](https://github.com/kichkasch/kichkasch_loxonetools/blob/master/magichome/magicHome.loxone.jpg) dargestellt miteinander verbinden.
 
